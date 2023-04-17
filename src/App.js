@@ -5,8 +5,8 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
-import ColorPalettes from './pages/colorPalettes';
-import ColorsPage from './pages/colorsPage';
+import ColorPalettes from './pages/ColorPalettes';
+import ColorsPage from './pages/ColorsPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
