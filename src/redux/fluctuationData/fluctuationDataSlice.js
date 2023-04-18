@@ -1,5 +1,5 @@
 import axios from "axios"; // eslint-disable-line
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, nanoid} from "@reduxjs/toolkit";
 
 const start_date = "2020-01-01";
 const end_date = "2020-01-04";
@@ -18,16 +18,11 @@ export const fetchFluctuationData = createAsyncThunk(
   "fluctuationData/fetchFluctuationData",
   async (initialState) => {
     const response = await axios.get(url);
-    // const  response =  axios.post(url, {
-    //     "model":"default"
-    //   }, {
-    //     headers: {
-    //       'Content-Type': null
-    //     }
-    //   });
+    
     const newArr = [];
     Object.keys(response.data.rates).forEach(function (key, index) {
       newArr.push({
+        id: nanoid(),
         symbol: key,
         change: response.data.rates[key].change,
         change_pct: response.data.rates[key].change_pct,

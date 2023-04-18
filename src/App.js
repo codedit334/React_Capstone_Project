@@ -5,8 +5,8 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import FluctuationData from "./pages/FluctuationData";
-import CurrencyRate, { currenciesLoader } from "./pages/CurrencyRate";
+import FluctuationData from "./pages/FluctuationData.js";
+import CurrencyRate, { currenciesLoader } from "./pages/CurrencyRate.js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
