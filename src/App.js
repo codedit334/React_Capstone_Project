@@ -1,21 +1,24 @@
-import './App.css';
+import "./App.css";
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
-} from 'react-router-dom';
-import ColorPalettes from './pages/ColorPalettes';
-import ColorsPage from './pages/ColorsPage';
+} from "react-router-dom";
+import FluctuationData from "./pages/FluctuationData";
+import CurrencyRate, { currenciesLoader } from "./pages/CurrencyRate";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
-      <Route index element={<ColorPalettes />} />
-      <Route path="/colors/:category" element={<ColorsPage />} />
-    </Route>,
-  ),
-
+      <Route index element={<FluctuationData />} />
+      <Route
+        path="/currency/:symbol"
+        loader={currenciesLoader}
+        element={<CurrencyRate />}
+      />
+    </Route>
+  )
 );
 function App() {
   return (

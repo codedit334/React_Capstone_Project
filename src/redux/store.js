@@ -1,8 +1,8 @@
-import { configureStore } from '@reduxjs/toolkit'
-import colorPalettesReducer from './colorPalettes/colorPalettesSlice'
+import { configureStore } from "@reduxjs/toolkit";
+import fluctuationDataReducer from "./fluctuationData/fluctuationDataSlice";
 
 export default configureStore({
   reducer: {
-    colorPalettes: colorPalettesReducer
-  }
-})
+    fluctuationData: fluctuationDataReducer,
+  },
+});
