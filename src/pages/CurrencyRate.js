@@ -5,7 +5,7 @@ import { nanoid } from "@reduxjs/toolkit";
 export default function CurrencyRate() {
   const { symbol } = useParams();
   const currencies = useLoaderData();
-
+  console.log(currencies)
   const [search, setSearch] = useState("");
 
   const filteredData = currencies.slice(0, 6).filter((item) => {
@@ -14,17 +14,17 @@ export default function CurrencyRate() {
 
   return (
     <div>
-      <input value={search} onChange={(e) => setSearch(e.target.value)} />
+      <input value={search} data-testid="search-input-2" onChange={(e) => setSearch(e.target.value)} />
 
       <h2>
-        {symbol}
+        <span data-testid="symbol">{symbol}</span>
         <br />
         {currencies.slice(-1)[0].data_date}
       </h2>
       {filteredData &&
         filteredData.slice(0, 6).map((currencie) => (
           <div key={currencies.indexOf(currencie) * 12}>
-            {`${currencie.symbol}`}
+            <span>{`${currencie.symbol}`}</span>
             <br />
             {currencie.rate}
           </div>
