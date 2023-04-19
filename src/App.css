@@ -91,6 +91,10 @@ a:-webkit-any-link {
   font-size: 160%;
 }
 
+.fluctuation-data-render a {
+  cursor: pointer;
+}
+
 .fluctuation-data-render a:visited {
   color: white;
 }

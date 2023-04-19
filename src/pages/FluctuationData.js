@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // eslint-disable-next-line import/extensions
 import { fetchFluctuationData } from '../redux/fluctuationData/fluctuationDataSlice.js';
-// import { BiArrowBack } from 'react-icons/bi';
 
 export default function FluctuationData() {
   const dispatch = useDispatch();
@@ -13,7 +12,6 @@ export default function FluctuationData() {
     status, error, fluctuationData, startDate, endDate,
   } = data;
 
-  // console.log(fluctuationData);
   const [search, setSearch] = useState('');
   const filteredData = fluctuationData.filter(
     (item) => item.symbol.toLowerCase().includes(search.toLowerCase()),
@@ -71,13 +69,3 @@ export default function FluctuationData() {
     </div>
   );
 }
-
-// const styles = StyleSheet.create({
-//   VATRatesWrapper: {
-//     width: "100%",
-//   },
-//   VATRates: {
-//     display: "grid",
-//     gridTemplateColumns: "repeat(2, 1fr)",
-//   },
-// });
