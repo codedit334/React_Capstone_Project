@@ -1,11 +1,12 @@
 import axios from "axios"; // eslint-disable-line
 import { useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 export default function CurrencyRate() {
   const { symbol } = useParams();
   const currencies = useLoaderData();
-  console.log(currencies)
+  console.log(currencies);
   const [search, setSearch] = useState("");
 
   const filteredData = currencies.slice(0, 6).filter((item) => {
@@ -14,21 +15,34 @@ export default function CurrencyRate() {
 
   return (
     <div>
-      <input value={search} data-testid="search-input-2" onChange={(e) => setSearch(e.target.value)} />
-
+      <div className="header">
+        <span><Link to="/">⇦</Link></span>
+        <input
+          value={search}
+          data-testid="search-input-2"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
+      <div className="currency-rate-hero">
+        <h2 data-testid="symbol">{symbol}</h2>
       <h2>
-        <span data-testid="symbol">{symbol}</span>
-        <br />
         {currencies.slice(-1)[0].data_date}
       </h2>
+      </div>
+      <div className="currency-rate-title">
+        <h3>Historical Rates</h3>
+      </div>
+      <div className="currency-rate-render">
+
       {filteredData &&
         filteredData.slice(0, 6).map((currencie) => (
           <div key={currencies.indexOf(currencie) * 12}>
             <span>{`${currencie.symbol}`}</span>
             <br />
-            {currencie.rate}
+            <div>{currencie.rate}</div>
           </div>
         ))}
+    </div>
     </div>
   );
 }

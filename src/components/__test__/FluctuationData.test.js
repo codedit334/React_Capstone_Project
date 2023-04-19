@@ -32,8 +32,6 @@ describe("Fluctuation component", () => {
         ],
       },
     });
-
-    // store.dispatch(reserve(1));
   });
 
   it("should render the FluctuationData component", () => {

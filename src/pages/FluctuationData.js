@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { StyleSheet, css } from "aphrodite";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFluctuationData } from "../redux/fluctuationData/fluctuationDataSlice.js";
+// import { BiArrowBack } from 'react-icons/bi';
 
 export default function FluctuationData() {
   const dispatch = useDispatch();
@@ -22,12 +23,24 @@ export default function FluctuationData() {
     }
   });
   return (
-    <div>
-      <input value={search} data-testid="search-input" onChange={(e) => setSearch(e.target.value)} />
-      <h1>{`${start_date} => ${end_date}`} </h1>
+    <div className="fluctuation-data">
+      <div className="header">
+        <input
+          value={search}
+          data-testid="search-input"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
+      <div className="fluctuation-data-hero">
+       <h2>Fluctuation Rates</h2>
+        <h2>{`${start_date} => ${end_date}`} </h2>
+      </div>
+      <div className="fluctuation-data-title">
+        <h3>Rates</h3>
+      </div>
       {status === "loading" && <div>loading...</div>}
       {status === "succeeded" && (
-        <div>
+        <div className="fluctuation-data-render">
           {filteredData &&
             filteredData.slice(0, 6).map((data) => (
               <Link
@@ -35,10 +48,10 @@ export default function FluctuationData() {
                 to={`/currency/${data.symbol}`}
               >
                 <span>{data.symbol}</span>
-                <br />
-                {data.change}
-                <br />
-                {(data.change_pct * 100).toFixed(2)}%
+                <div>
+                  <div>Change: {data.change}</div>
+                  <div>{(data.change_pct * 100).toFixed(2)}%</div>
+                </div>
               </Link>
             ))}
         </div>
