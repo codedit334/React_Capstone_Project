@@ -1,3 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  font-family: 'Lato', sans-serif;
+}
+
+a:-webkit-any-link {
+  color: white !important;
+}
+
 .App {
   text-align: center;
+  color: white !important;
+  background-color: #c43c70;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.fluctuation-data {
+  width: 100%;
+}
+
+.header {
+  width: 100%;
+}
+
+.header span {
+  position: absolute;
+  margin: 15px 18px;
+  left: 0;
+  cursor: pointer;
+}
+
+.header a {
+  text-decoration: none;
+  color: white;
+}
+
+.header input {
+  width: 200px;
+  left: 50%;
+  margin: 18px;
+}
+
+.fluctuation-data-hero {
+  background-image: url("./assets/fluctuation_bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.currency-rate-hero {
+  height: 30vh;
+  background-color: #f74e8f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fluctuation-data-title h3,
+.currency-rate-title h3 {
+  background-color: #c43c70;
+  text-align: start;
+  padding-left: 1%;
+}
+
+.fluctuation-data-render,
+.currency-rate-render {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #c43c70;
+}
+
+.fluctuation-data-render a,
+.currency-rate-render > div {
+  height: 32vh;
+  text-decoration: none;
+  background-color: #e14480;
+  margin: 2%;
+  font-size: 160%;
+}
+
+.fluctuation-data-render a:visited {
+  color: white;
+}
+
+.fluctuation-data-render a > span,
+.currency-rate-render > div > span {
+  position: relative;
+  top: 30%;
+}
+
+.fluctuation-data-render a > div,
+.currency-rate-render > div > div {
+  position: relative;
+  top: 30%;
+  text-align: end;
+  padding: 5px;
+  font-size: 90% !important;
+}
+
+/* Linter Request: Keep last */
+.header a:visited {
+  color: white;
 }
