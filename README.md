@@ -13,6 +13,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+  - [🎥 Video Description](#video-description)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
@@ -71,11 +72,20 @@ This webapp is created using React and Redux, it fetches data from an API, store
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- Video Description -->
+
+## 🎥 Video Description <a name="video-description"></a>
+
+- [Video Description](https://www.loom.com/share/d932df90c75740508703693777a405a3)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo](https://space-hub-osb.netlify.app/)
+- [Live Demo](https://react-capstone-oe.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -91,7 +101,7 @@ In order to run this project you need: any web-browser.
 
 ### Setup
 
-Clone this [repository](https://github.com/codedit334/React_Group_Project) to your desired folder.
+Clone this [repository](https://github.com/codedit334/React_Capstone_Project) to your desired folder.
 
 ### Install
 
@@ -101,9 +111,9 @@ This project does not require installation.
 
 **To run the project follow the following instruction:-**
 
-- Clone this [repository](https://github.com/codedit334/React_Group_Project) in your local machine with correct branch.
+- Clone this [repository](https://github.com/codedit334/React_Capstone_Project) in your local machine with correct branch.
 - First run **npm install**
-- Terminal:- **npm start** it will run on port 8080.
+- Terminal:- **npm start** it will run on port 3000.
 
 ### Run tests
 
@@ -119,15 +129,9 @@ You can deploy this project using: Project is incomplete.
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Shubham Bhoyar**
-
-- GitHub: [@shubhambhoyar077](https://github.com/shubhambhoyar077)
-
 👤 **Oussama Elabdioui**
 - GitHub: [@codedit334](https://github.com/codedit334)
 
-👤 **Basim Aljazaeri**
-- GitHub: [@ShiroYaksha90](https://github.com/ShiroYaksha90)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -180,6 +184,6 @@ I would like to thank Microverse.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](https://github.com/codedit334/React_Capstone_Project/blob/dev/LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
