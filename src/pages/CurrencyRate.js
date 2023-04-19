@@ -1,17 +1,17 @@
 import axios from "axios"; // eslint-disable-line
-import { useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { nanoid } from "@reduxjs/toolkit";
+import { useState } from 'react';
+import { useLoaderData, useParams, Link } from 'react-router-dom';
+import { nanoid } from '@reduxjs/toolkit';
+
 export default function CurrencyRate() {
   const { symbol } = useParams();
   const currencies = useLoaderData();
-  console.log(currencies);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
 
-  const filteredData = currencies.slice(0, 6).filter((item) => {
-    return item.symbol.toLowerCase().includes(search.toLowerCase());
-  });
+  const filteredData = currencies.slice(0, 6)
+    .filter(
+      (item) => item.symbol.toLowerCase().includes(search.toLowerCase()),
+    );
 
   return (
     <div>
@@ -25,37 +25,37 @@ export default function CurrencyRate() {
       </div>
       <div className="currency-rate-hero">
         <h2 data-testid="symbol">{symbol}</h2>
-      <h2>
-        {currencies.slice(-1)[0].data_date}
-      </h2>
+        <h2>
+          {currencies.slice(-1)[0].dataDate}
+        </h2>
       </div>
       <div className="currency-rate-title">
         <h3>Historical Rates</h3>
       </div>
       <div className="currency-rate-render">
 
-      {filteredData &&
-        filteredData.slice(0, 6).map((currencie) => (
+        {filteredData
+        && filteredData.slice(0, 6).map((currencie) => (
           <div key={currencies.indexOf(currencie) * 12}>
             <span>{`${currencie.symbol}`}</span>
             <br />
             <div>{currencie.rate}</div>
           </div>
         ))}
-    </div>
+      </div>
     </div>
   );
 }
 
 export const currenciesLoader = async ({ params }) => {
   const { symbol } = params;
-  const data_date = "2020-04-04";
-  const url = `https://api.exchangerate.host/${data_date}?base=${symbol}&places=2`;
+  const dataDate = '2020-04-04';
+  const url = `https://api.exchangerate.host/${dataDate}?base=${symbol}&places=2`;
 
   const response = axios.get(url);
   const currencies = await response;
   let newArr = [];
-  Object.keys(currencies.data.rates).forEach(function (key) {
+  Object.keys(currencies.data.rates).forEach((key) => {
     newArr.push({
       id: nanoid(),
       symbol: key,
@@ -64,7 +64,7 @@ export const currenciesLoader = async ({ params }) => {
   });
   newArr = newArr.slice(0, 6);
   newArr.push({
-    data_date,
+    dataDate,
   });
   return newArr;
 };

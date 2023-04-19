@@ -1,12 +1,14 @@
-import "./App.css";
+import './App.css';
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
-} from "react-router-dom";
-import FluctuationData from "./pages/FluctuationData.js";
-import CurrencyRate, { currenciesLoader } from "./pages/CurrencyRate.js";
+} from 'react-router-dom';
+// eslint-disable-next-line import/extensions
+import FluctuationData from './pages/FluctuationData.js';
+// eslint-disable-next-line import/extensions
+import CurrencyRate, { currenciesLoader } from './pages/CurrencyRate.js';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,8 +19,8 @@ const router = createBrowserRouter(
         loader={currenciesLoader}
         element={<CurrencyRate />}
       />
-    </Route>
-  )
+    </Route>,
+  ),
 );
 function App() {
   return (

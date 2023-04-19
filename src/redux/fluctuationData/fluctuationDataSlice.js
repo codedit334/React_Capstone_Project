@@ -1,26 +1,25 @@
 import axios from "axios"; // eslint-disable-line
-import { createAsyncThunk, createSlice, nanoid} from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, nanoid } from '@reduxjs/toolkit';
 
-const start_date = "2020-01-01";
-const end_date = "2020-01-04";
-const url =
-  `https://api.exchangerate.host/fluctuation?start_date=${start_date}&end_date=${end_date}&places=4`;
+const startDate = '2020-01-01';
+const endDate = '2020-01-04';
+const url = `https://api.exchangerate.host/fluctuation?start_date=${startDate}&end_date=${endDate}`;
 
 const initialState = {
   fluctuationData: [],
-  start_date,
-  end_date,
-  status: "idle",
+  startDate,
+  endDate,
+  status: 'idle',
   error: null,
 };
 
 export const fetchFluctuationData = createAsyncThunk(
-  "fluctuationData/fetchFluctuationData",
-  async (initialState) => {
+  'fluctuationData/fetchFluctuationData',
+  async () => {
     const response = await axios.get(url);
-    
+
     const newArr = [];
-    Object.keys(response.data.rates).forEach(function (key, index) {
+    Object.keys(response.data.rates).forEach((key) => {
       newArr.push({
         id: nanoid(),
         symbol: key,
@@ -30,11 +29,11 @@ export const fetchFluctuationData = createAsyncThunk(
     });
 
     return newArr;
-  }
+  },
 );
 
 const fluctuationSlice = createSlice({
-  name: "fluctuationData",
+  name: 'fluctuationData',
   initialState,
   reducers: {},
 
@@ -42,16 +41,16 @@ const fluctuationSlice = createSlice({
     builder
       .addCase(fetchFluctuationData.pending, (state) => ({
         ...state,
-        status: "loading",
+        status: 'loading',
       }))
       .addCase(fetchFluctuationData.fulfilled, (state, action) => ({
         ...state,
-        status: "succeeded",
+        status: 'succeeded',
         fluctuationData: action.payload,
       }))
       .addCase(fetchFluctuationData.rejected, (state, action) => ({
         ...state,
-        status: "failed",
+        status: 'failed',
         error: action.error.message,
       }));
   },
